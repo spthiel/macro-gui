@@ -250,7 +250,7 @@ LibraryComponent.propTypes = {
         /* eslint-disable react/no-unused-prop-types, lines-around-comment */
         // An item in the library
         PropTypes.shape({
-            // @todo remove md5/rawURL prop from library, refactor to use storage
+            // @todo remove md5/rawURL prop from library, refactor to use storag e
             md5: PropTypes.string,
             name: PropTypes.oneOfType([
                 PropTypes.string,

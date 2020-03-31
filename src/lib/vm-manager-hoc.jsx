@@ -35,7 +35,7 @@ const vmManagerHOC = function (WrappedComponent) {
                 this.props.vm.initialized = true;
                 this.props.vm.setLocale(this.props.locale, this.props.messages);
             }
-            if (!this.props.isPlayerOnly && !this.props.isStarted) {
+            if (!this.props.isStarted) {
                 this.props.vm.start();
             }
         }
@@ -47,7 +47,7 @@ const vmManagerHOC = function (WrappedComponent) {
                 this.loadProject();
             }
             // Start the VM if entering editor mode with an unstarted vm
-            if (!this.props.isPlayerOnly && !this.props.isStarted) {
+            if (!this.props.isStarted) {
                 this.props.vm.start();
             }
         }
@@ -106,8 +106,6 @@ const vmManagerHOC = function (WrappedComponent) {
         cloudHost: PropTypes.string,
         fontsLoaded: PropTypes.bool,
         isLoadingWithId: PropTypes.bool,
-        isPlayerOnly: PropTypes.bool,
-        isStarted: PropTypes.bool,
         loadingState: PropTypes.oneOf(LoadingStates),
         locale: PropTypes.string,
         messages: PropTypes.objectOf(PropTypes.string),
@@ -130,8 +128,6 @@ const vmManagerHOC = function (WrappedComponent) {
             projectData: state.scratchGui.projectState.projectData,
             projectId: state.scratchGui.projectState.projectId,
             loadingState: loadingState,
-            isPlayerOnly: state.scratchGui.mode.isPlayerOnly,
-            isStarted: state.scratchGui.vmStatus.started
         };
     };
 

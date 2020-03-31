@@ -12,7 +12,6 @@ import expandIcon from './icon--expand.svg';
 import rightArrow from './icon--next.svg';
 import leftArrow from './icon--prev.svg';
 
-import helpIcon from '../../lib/assets/icon--tutorials.svg';
 import closeIcon from './icon--close.svg';
 
 import {translateVideo} from '../../lib/libraries/decks/translate-video.js';
@@ -24,10 +23,6 @@ const CardHeader = ({onCloseCards, onShrinkExpandCards, onShowAll, totalSteps, s
             className={styles.allButton}
             onClick={onShowAll}
         >
-            <img
-                className={styles.helpIcon}
-                src={helpIcon}
-            />
             <FormattedMessage
                 defaultMessage="Tutorials"
                 description="Title for button to return to tutorials library"
@@ -316,8 +311,7 @@ const Cards = props => {
         // The tallest cards are about 320px high, and the default position is pinned
         // to near the bottom of the blocks palette to allow room to work above.
         const tallCardHeight = 320;
-        const bottomMargin = 60; // To avoid overlapping the backpack region
-        y = window.innerHeight - tallCardHeight - bottomMargin - menuBarHeight;
+        y = window.innerHeight - tallCardHeight - menuBarHeight;
     }
 
     const steps = content[activeDeckId].steps;

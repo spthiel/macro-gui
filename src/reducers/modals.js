@@ -54,47 +54,17 @@ const closeModal = function (modal) {
         modal: modal
     };
 };
-const openBackdropLibrary = function () {
-    return openModal(MODAL_BACKDROP_LIBRARY);
-};
-const openCameraCapture = function () {
-    return openModal(MODAL_CAMERA_CAPTURE);
-};
-const openCostumeLibrary = function () {
-    return openModal(MODAL_COSTUME_LIBRARY);
-};
 const openExtensionLibrary = function () {
     return openModal(MODAL_EXTENSION_LIBRARY);
 };
 const openLoadingProject = function () {
     return openModal(MODAL_LOADING_PROJECT);
 };
-const openTelemetryModal = function () {
-    return openModal(MODAL_TELEMETRY);
-};
-const openSoundLibrary = function () {
-    return openModal(MODAL_SOUND_LIBRARY);
-};
-const openSpriteLibrary = function () {
-    return openModal(MODAL_SPRITE_LIBRARY);
-};
-const openSoundRecorder = function () {
-    return openModal(MODAL_SOUND_RECORDER);
-};
 const openConnectionModal = function () {
     return openModal(MODAL_CONNECTION);
 };
-const openTipsLibrary = function () {
-    return openModal(MODAL_TIPS_LIBRARY);
-};
-const closeBackdropLibrary = function () {
-    return closeModal(MODAL_BACKDROP_LIBRARY);
-};
 const closeCameraCapture = function () {
     return closeModal(MODAL_CAMERA_CAPTURE);
-};
-const closeCostumeLibrary = function () {
-    return closeModal(MODAL_COSTUME_LIBRARY);
 };
 const closeExtensionLibrary = function () {
     return closeModal(MODAL_EXTENSION_LIBRARY);
@@ -105,44 +75,18 @@ const closeLoadingProject = function () {
 const closeTelemetryModal = function () {
     return closeModal(MODAL_TELEMETRY);
 };
-const closeSpriteLibrary = function () {
-    return closeModal(MODAL_SPRITE_LIBRARY);
-};
-const closeSoundLibrary = function () {
-    return closeModal(MODAL_SOUND_LIBRARY);
-};
-const closeSoundRecorder = function () {
-    return closeModal(MODAL_SOUND_RECORDER);
-};
-const closeTipsLibrary = function () {
-    return closeModal(MODAL_TIPS_LIBRARY);
-};
 const closeConnectionModal = function () {
     return closeModal(MODAL_CONNECTION);
 };
 export {
     reducer as default,
     initialState as modalsInitialState,
-    openBackdropLibrary,
-    openCameraCapture,
-    openCostumeLibrary,
     openExtensionLibrary,
     openLoadingProject,
-    openSoundLibrary,
-    openSpriteLibrary,
-    openSoundRecorder,
-    openTelemetryModal,
-    openTipsLibrary,
     openConnectionModal,
-    closeBackdropLibrary,
     closeCameraCapture,
-    closeCostumeLibrary,
     closeExtensionLibrary,
     closeLoadingProject,
-    closeSpriteLibrary,
-    closeSoundLibrary,
-    closeSoundRecorder,
     closeTelemetryModal,
-    closeTipsLibrary,
     closeConnectionModal
 };

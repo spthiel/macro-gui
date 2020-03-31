@@ -49,21 +49,12 @@ const AppStateHOC = function (WrappedComponent, localesOnly) {
                 const {
                     guiInitialState,
                     guiMiddleware,
-                    initFullScreen,
-                    initPlayer,
                     initTelemetryModal
                 } = guiRedux;
                 const {ScratchPaintReducer} = require('scratch-paint');
 
                 let initializedGui = guiInitialState;
-                if (props.isFullScreen || props.isPlayerOnly) {
-                    if (props.isFullScreen) {
-                        initializedGui = initFullScreen(initializedGui);
-                    }
-                    if (props.isPlayerOnly) {
-                        initializedGui = initPlayer(initializedGui);
-                    }
-                } else if (props.showTelemetryModal) {
+                if (props.showTelemetryModal) {
                     initializedGui = initTelemetryModal(initializedGui);
                 }
                 reducers = {
@@ -86,17 +77,12 @@ const AppStateHOC = function (WrappedComponent, localesOnly) {
         }
         componentDidUpdate (prevProps) {
             if (localesOnly) return;
-            if (prevProps.isPlayerOnly !== this.props.isPlayerOnly) {
-                this.store.dispatch(setPlayer(this.props.isPlayerOnly));
-            }
             if (prevProps.isFullScreen !== this.props.isFullScreen) {
                 this.store.dispatch(setFullScreen(this.props.isFullScreen));
             }
         }
         render () {
             const {
-                isFullScreen, // eslint-disable-line no-unused-vars
-                isPlayerOnly, // eslint-disable-line no-unused-vars
                 showTelemetryModal, // eslint-disable-line no-unused-vars
                 ...componentProps
             } = this.props;
@@ -112,8 +98,6 @@ const AppStateHOC = function (WrappedComponent, localesOnly) {
         }
     }
     AppStateWrapper.propTypes = {
-        isFullScreen: PropTypes.bool,
-        isPlayerOnly: PropTypes.bool,
         showTelemetryModal: PropTypes.bool
     };
     return AppStateWrapper;

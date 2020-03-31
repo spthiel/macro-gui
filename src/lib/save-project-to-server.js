@@ -1,6 +1,5 @@
 import queryString from 'query-string';
 import xhr from 'xhr';
-import storage from '../lib/storage';
 
 /**
  * Save a project JSON to the project server.
@@ -31,17 +30,17 @@ export default function (projectId, vmState, params) {
     if (params.hasOwnProperty('title')) queryParams.title = params.title;
     let qs = queryString.stringify(queryParams);
     if (qs) qs = `?${qs}`;
-    if (creatingProject) {
-        Object.assign(opts, {
-            method: 'post',
-            url: `${storage.projectHost}/${qs}`
-        });
-    } else {
-        Object.assign(opts, {
-            method: 'put',
-            url: `${storage.projectHost}/${projectId}${qs}`
-        });
-    }
+    // if (creatingProject) {
+    //     Object.assign(opts, {
+    //         method: 'post',
+    //         url: `${storage.projectHost}/${qs}`
+    //     });
+    // } else {
+    //     Object.assign(opts, {
+    //         method: 'put',
+    //         url: `${storage.projectHost}/${projectId}${qs}`
+    //     });
+    // }
     return new Promise((resolve, reject) => {
         xhr(opts, (err, response) => {
             if (err) return reject(err);

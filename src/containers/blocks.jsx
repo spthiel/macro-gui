@@ -16,20 +16,14 @@ import CustomProcedures from './custom-procedures.jsx';
 import errorBoundaryHOC from '../lib/error-boundary-hoc.jsx';
 import {STAGE_DISPLAY_SIZES} from '../lib/layout-constants';
 import DropAreaHOC from '../lib/drop-area-hoc.jsx';
-import DragConstants from '../lib/drag-constants';
 import defineDynamicBlock from '../lib/define-dynamic-block';
 
 import {connect} from 'react-redux';
 import {updateToolbox} from '../reducers/toolbox';
 import {activateColorPicker} from '../reducers/color-picker';
-import {closeExtensionLibrary, openSoundRecorder, openConnectionModal} from '../reducers/modals';
+import {closeExtensionLibrary, openConnectionModal} from '../reducers/modals';
 import {activateCustomProcedures, deactivateCustomProcedures} from '../reducers/custom-procedures';
 import {setConnectionModalExtensionId} from '../reducers/connection-modal';
-
-import {
-    activateTab,
-    SOUNDS_TAB_INDEX
-} from '../reducers/editor-tab';
 
 const addFunctionListener = (object, property, callback) => {
     const oldFn = object[property];
@@ -41,7 +35,6 @@ const addFunctionListener = (object, property, callback) => {
 };
 
 const DroppableBlocks = DropAreaHOC([
-    DragConstants.BACKPACK_CODE
 ])(BlocksComponent);
 
 class Blocks extends React.Component {

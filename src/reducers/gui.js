@@ -6,7 +6,6 @@ import colorPickerReducer, {colorPickerInitialState} from './color-picker';
 import connectionModalReducer, {connectionModalInitialState} from './connection-modal';
 import customProceduresReducer, {customProceduresInitialState} from './custom-procedures';
 import blockDragReducer, {blockDragInitialState} from './block-drag';
-import editorTabReducer, {editorTabInitialState} from './editor-tab';
 import hoveredTargetReducer, {hoveredTargetInitialState} from './hovered-target';
 import menuReducer, {menuInitialState} from './menus';
 import micIndicatorReducer, {micIndicatorInitialState} from './mic-indicator';
@@ -39,7 +38,6 @@ const guiInitialState = {
     colorPicker: colorPickerInitialState,
     connectionModal: connectionModalInitialState,
     customProcedures: customProceduresInitialState,
-    editorTab: editorTabInitialState,
     mode: modeInitialState,
     hoveredTarget: hoveredTargetInitialState,
     stageSize: stageSizeInitialState,
@@ -65,8 +63,6 @@ const initPlayer = function (currentState) {
         {},
         currentState,
         {mode: {
-            isFullScreen: currentState.mode.isFullScreen,
-            isPlayerOnly: true,
             // When initializing in player mode, make sure to reset
             // hasEverEnteredEditorMode
             hasEverEnteredEditor: false
@@ -78,8 +74,6 @@ const initFullScreen = function (currentState) {
         {},
         currentState,
         {mode: {
-            isFullScreen: true,
-            isPlayerOnly: currentState.mode.isPlayerOnly,
             hasEverEnteredEditor: currentState.mode.hasEverEnteredEditor
         }}
     );
@@ -91,8 +85,6 @@ const initEmbedded = function (currentState) {
         currentState,
         {mode: {
             showBranding: true,
-            isFullScreen: true,
-            isPlayerOnly: true,
             hasEverEnteredEditor: false
         }}
     );
@@ -137,7 +129,6 @@ const guiReducer = combineReducers({
     colorPicker: colorPickerReducer,
     connectionModal: connectionModalReducer,
     customProcedures: customProceduresReducer,
-    editorTab: editorTabReducer,
     mode: modeReducer,
     hoveredTarget: hoveredTargetReducer,
     stageSize: stageSizeReducer,
